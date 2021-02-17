@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Fastpass">
+    <output-path>$USER_HOME$/OneDrive</output-path>
+    <root id="archive" name="Fastpass.jar">
+      <element id="module-output" name="FastPass" />
+    </root>
+  </artifact>
+</component>

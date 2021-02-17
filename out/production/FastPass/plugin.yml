@@ -1,0 +1,9 @@
+name: Fastpass
+main: fr.shark_zekrom.Fastpass.Main
+version: 1.1
+api-version: 1.13
+author: shark_zekrom
+description: Fastpass
+commands:
+  fastpass:
+    description: créer des fastpass facilement
