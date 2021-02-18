@@ -58,8 +58,9 @@ public class Commands implements CommandExecutor , TabExecutor {
                             }
                         } else {
                             String prefix = Config.get().getString("Prefix");
+                            String prefix2 =  prefix.replaceAll("&", "§");
 
-                            player.sendMessage(prefix + ChatColor.RED + "There is already a fastpass to this name");
+                            player.sendMessage(prefix2 + ChatColor.RED + "There is already a fastpass to this name");
                         }
                     }
                     if (args[0].equalsIgnoreCase("delete")) {
@@ -86,7 +87,9 @@ public class Commands implements CommandExecutor , TabExecutor {
                             config.set("fastpass." + args[1] + ".pitch", player.getLocation().getPitch());
                             config.set("fastpass." + args[1] + ".yaw", player.getLocation().getYaw());
                             String prefix = Config.get().getString("Prefix");
-                            player.sendMessage(prefix + ChatColor.YELLOW + "Teleportation point for the fastpass " + args[1] + " create.");
+                            String prefix2 =  prefix.replaceAll("&", "§");
+
+                            player.sendMessage(prefix2 + ChatColor.YELLOW + "Teleportation point for the fastpass " + args[1] + " create.");
 
                             try {
                                 config.save(file);
@@ -95,14 +98,18 @@ public class Commands implements CommandExecutor , TabExecutor {
                             }
                         } else {
                             String prefix = Config.get().getString("Prefix");
-                            player.sendMessage(prefix + ChatColor.RED + "There is no fastpass to its name created in one with the command /fastpass create <name>.");
+                            String prefix2 =  prefix.replaceAll("&", "§");
+
+                            player.sendMessage(prefix2 + ChatColor.RED + "There is no fastpass to its name created in one with the command /fastpass create <name>.");
                         }
                     }
                     if (args[0].equalsIgnoreCase("state")) {
                         if (args[2].equalsIgnoreCase("on")) {
                             config.set("fastpass." + args[1] + ".state", "on");
                             String prefix = Config.get().getString("Prefix");
-                            player.sendMessage(prefix + "fastpass" + args[1] + " open.");
+                            String prefix2 =  prefix.replaceAll("&", "§");
+
+                            player.sendMessage(prefix2 + "fastpass" + args[1] + " open.");
                             try {
                                 config.save(file);
                             } catch (IOException e) {
@@ -112,7 +119,9 @@ public class Commands implements CommandExecutor , TabExecutor {
                         if (args[2].equalsIgnoreCase("off")) {
                             config.set("fastpass." + args[1] + ".state", "off");
                             String prefix = Config.get().getString("Prefix");
-                            player.sendMessage(prefix + "fastpass" + args[1] + " closed.");
+                            String prefix2 =  prefix.replaceAll("&", "§");
+
+                            player.sendMessage(prefix2 + "fastpass" + args[1] + " closed.");
                             try {
                                 config.save(file);
                             } catch (IOException e) {
@@ -125,7 +134,9 @@ public class Commands implements CommandExecutor , TabExecutor {
                         ItemStack ticket = player.getInventory().getItemInMainHand();
                         config.set("fastpass." + args[1] + ".ticket", ticket);
                         String prefix = Config.get().getString("Prefix");
-                        player.sendMessage(prefix + "fastpass" + args[1] + " Create ticket for fastpass " + args[1]);
+                        String prefix2 =  prefix.replaceAll("&", "§");
+
+                        player.sendMessage(prefix2 + "fastpass" + args[1] + " Create ticket for fastpass " + args[1]);
                         try {
                             config.save(file);
                         } catch (IOException e) {
@@ -137,7 +148,7 @@ public class Commands implements CommandExecutor , TabExecutor {
                         player.sendMessage(ChatColor.AQUA + "[Fastpass+]" + ChatColor.YELLOW + " Plugin reloaded.");
                     }
                     if (args[0].equalsIgnoreCase("give")) {
-                        if (args[2] != null) {
+                        if (args.length == 3) {
                             String name = args[1];
                             Player player1 = Bukkit.getPlayer(args[2]);
 
@@ -146,18 +157,32 @@ public class Commands implements CommandExecutor , TabExecutor {
                                 player1.getInventory().addItem(ticket);
 
                                 String prefix = Config.get().getString("Prefix");
+                                String prefix2 =  prefix.replaceAll("&", "§");
+
                                 String message1 = Config.get().getString("FastpassReceived");
                                 String message2 = Config.get().getString("FastpassGive");
 
-                                player1.sendMessage(prefix + message1);
-                                player.sendMessage(prefix + message2 + " " + player1.getName());
+                                String message3 =  message1.replaceAll("&", "§");
+                                String message4 =  message2.replaceAll("&", "§");
 
+
+                                player1.sendMessage(prefix2 + message4);
+                                player.sendMessage(prefix2 + message3 + " " + player1.getName());
                             }
                         }
                         else {
                             String prefix = Config.get().getString("Prefix");
+                            String prefix2 =  prefix.replaceAll("&", "§");
+
                             String message = Config.get().getString("FastpassReceived");
-                            player.sendMessage(prefix + message);
+                            String message2 =  message.replaceAll("&", "§");
+
+                            player.sendMessage(prefix2 + message2);
+
+                            String name = args[1];
+                            ItemStack ticket = config.getItemStack("fastpass." + name + ".ticket");
+                            player.getInventory().addItem(ticket);
+
 
                         }
                     }
@@ -173,10 +198,12 @@ public class Commands implements CommandExecutor , TabExecutor {
             arguments.add("state");
             arguments.add("setteleportation");
             arguments.add("ticket");
+            arguments.add("give");
             arguments.add("reload");
             arguments.add("help");
             return arguments;
         }
+
         return null;
 
     }

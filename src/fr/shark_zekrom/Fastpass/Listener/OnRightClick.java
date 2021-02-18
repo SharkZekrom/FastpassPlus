@@ -66,16 +66,21 @@ public class OnRightClick implements Listener {
                                 if(player.getInventory().contains(ticket)){
 
                                     String message = Config.get().getString("TicketInInventory");
-                                    player.sendMessage(prefix + message);
+                                    String message2 =  message.replaceAll("&", "§");
+
+                                    player.sendMessage(prefix + message2);
                                 }
                                 else {
                                     player.getInventory().addItem(ticket);
                                     String message = Config.get().getString("FastpassReceived");
-                                    player.sendMessage(prefix + message);
+                                    String message2 =  message.replaceAll("&", "§");
+                                    player.sendMessage(prefix + message2);
                                 }
                             } else {
                                 String message = Config.get().getString("FastpassClosed");
-                                player.sendMessage(prefix + message);
+                                String message2 =  message.replaceAll("&", "§");
+
+                                player.sendMessage(prefix + message2);
                             }
                         }
                         if (sign.getLine(2).contains("teleport")) {
@@ -94,15 +99,21 @@ public class OnRightClick implements Listener {
                                     player.getInventory().remove(ticket);
 
                                     String message = Config.get().getString("TeleportationInProgress");
-                                    player.sendMessage(prefix + message);
+                                    String message2 =  message.replaceAll("&", "§");
+
+                                    player.sendMessage(prefix + message2);
                                 }
                                 else {
                                     String message = Config.get().getString("TicketIsNotInHand");
-                                    player.sendMessage(prefix + message);
+                                    String message2 =  message.replaceAll("&", "§");
+
+                                    player.sendMessage(prefix + message2);
                                 }
                             } else {
                                 String message = Config.get().getString("FastpassClosed");
-                                player.sendMessage(prefix + message);
+                                String message2 =  message.replaceAll("&", "§");
+
+                                player.sendMessage(prefix + message2);
                             }
                         }
                     }
