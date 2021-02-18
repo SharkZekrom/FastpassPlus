@@ -37,6 +37,8 @@ public class Commands implements CommandExecutor , TabExecutor {
                         player.sendMessage(ChatColor.AQUA + "/fastpass delete <name> §8» §eDelete a fastpass");
                         player.sendMessage(ChatColor.AQUA + "/fastpass setteleportation <name> §8» §eSet the teleportation point of a fastpass");
                         player.sendMessage(ChatColor.AQUA + "/fastpass state <name> <on/off> §8» §eChange the status of an attraction");
+                        player.sendMessage(ChatColor.AQUA + "/fastpass give <name> [player] §8» §eGive a fastpass fot you or for a player");
+
                         player.sendMessage(ChatColor.AQUA + "/fastpass reload §8» §eReload the config");
                     }
 
@@ -151,6 +153,12 @@ public class Commands implements CommandExecutor , TabExecutor {
                                 player.sendMessage(prefix + message2 + " " + player1.getName());
 
                             }
+                        }
+                        else {
+                            String prefix = Config.get().getString("Prefix");
+                            String message = Config.get().getString("FastpassReceived");
+                            player.sendMessage(prefix + message);
+
                         }
                     }
                 }
