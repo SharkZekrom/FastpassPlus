@@ -166,8 +166,8 @@ public class Commands implements CommandExecutor , TabExecutor {
                                 String message4 =  message2.replaceAll("&", "§");
 
 
-                                player1.sendMessage(prefix2 + message4);
-                                player.sendMessage(prefix2 + message3 + " " + player1.getName());
+                                player1.sendMessage(prefix2 + message4 + " " + player1.getName());
+                                player.sendMessage(prefix2 + message3);
                             }
                         }
                         else {
