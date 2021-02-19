@@ -19,7 +19,6 @@ public class Config {
             try{
                 file.createNewFile();
             }catch (IOException e){
-                //owww
             }
         }
         customFile = YamlConfiguration.loadConfiguration(file);

@@ -38,7 +38,6 @@ public class Main extends JavaPlugin {
         Config.get().addDefault("TeleportationInProgress", "&eTeleportation in progress.");
         Config.get().addDefault("FastpassReceived", "&bFastpass received.");
         Config.get().addDefault("FastpassClosed", "&cFastpass closed.");
-        Config.get().addDefault("FastpassReceived", "&6Fastpass received.");
         Config.get().addDefault("PlayerNotOnline", "&cPlayer Not Online.");
         Config.get().addDefault("FastpassGive", "&6Fastpass give to");
 
