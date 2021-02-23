@@ -3,6 +3,7 @@ package fr.shark_zekrom.Fastpass.Commands;
 import fr.shark_zekrom.Fastpass.Config;
 import fr.shark_zekrom.Fastpass.Main;
 import net.minecraft.server.v1_15_R1.Material;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -36,6 +37,7 @@ public class Commands implements CommandExecutor , TabExecutor {
                         player.sendMessage(ChatColor.AQUA + "/fastpass create <name> §8» §eCreate a fastpass");
                         player.sendMessage(ChatColor.AQUA + "/fastpass setticket <name> §8» §eSet a ticket for the fastpass");
                         player.sendMessage(ChatColor.AQUA + "/fastpass delete <name> §8» §eDelete a fastpass");
+                        player.sendMessage(ChatColor.AQUA + "/fastpass give <name> [player] §8» §egive a fastpass for you or for a player");
                         player.sendMessage(ChatColor.AQUA + "/fastpass setteleportation <name> §8» §eSet the teleportation point of a fastpass");
                         player.sendMessage(ChatColor.AQUA + "/fastpass state <name> <on/off> §8» §eChange the status of an attraction");
                         player.sendMessage(ChatColor.AQUA + "/fastpass reload §8» §eReload the config");
@@ -171,6 +173,24 @@ public class Commands implements CommandExecutor , TabExecutor {
                             player.sendMessage(ChatColor.AQUA + "");
                             player.sendMessage(ChatColor.AQUA + "/fastpass setticket <name> §8» §eSet a ticket for the fastpass");
                         }
+                    }
+                    if (args[0].equalsIgnoreCase("give")) {
+                        if(args.length > 2) {
+                            Player player1 = Bukkit.getPlayer(args[2]);
+                            ItemStack ticket = config.getItemStack("fastpass." + args[1] + ".ticket");
+                            player1.getInventory().addItem(ticket);
+                        }
+                        else {
+
+                            //fastpass give test shark
+                            ItemStack ticket = config.getItemStack("fastpass." + args[1] + ".ticket");
+                            player.getInventory().addItem(ticket);
+                        }
+
+                       // } else {
+                         //   player.sendMessage("§b==========[Fastpass+]==========");
+                           // player.sendMessage(ChatColor.AQUA + "");
+                           // player.sendMessage(ChatColor.AQUA + "/fastpass give <name> [player] §8» §egive a fastpass for you or for a player");
                     }
                 }
                 if (args[0].equalsIgnoreCase("reload")) {
