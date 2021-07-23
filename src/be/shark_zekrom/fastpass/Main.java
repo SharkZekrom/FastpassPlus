@@ -22,7 +22,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        Bukkit.getLogger().info("Plugin enabled !");
+        Bukkit.getLogger().info("Fastpass+ enabled !");
         PluginManager pm = getServer().getPluginManager();
 
         this.getCommand("fastpass").setExecutor(new Commands());
