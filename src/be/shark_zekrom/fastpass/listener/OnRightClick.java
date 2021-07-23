@@ -1,11 +1,10 @@
-package fr.shark_zekrom.Fastpass.Listener;
+package be.shark_zekrom.fastpass.listener;
 
-import fr.shark_zekrom.Fastpass.Config;
-import fr.shark_zekrom.Fastpass.Main;
-import fr.shark_zekrom.Fastpass.XMaterial;
+import be.shark_zekrom.fastpass.Config;
+import be.shark_zekrom.fastpass.Main;
+import be.shark_zekrom.fastpass.XMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Sign;
 import org.bukkit.configuration.ConfigurationSection;
@@ -18,7 +17,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
-import java.sql.Wrapper;
 
 public class OnRightClick implements Listener {
 

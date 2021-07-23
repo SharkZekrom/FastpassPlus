@@ -1,8 +1,7 @@
-package fr.shark_zekrom.Fastpass.Commands;
+package be.shark_zekrom.fastpass.commands;
 
-import fr.shark_zekrom.Fastpass.Config;
-import fr.shark_zekrom.Fastpass.Main;
-import net.minecraft.server.v1_15_R1.Material;
+import be.shark_zekrom.fastpass.Config;
+import be.shark_zekrom.fastpass.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

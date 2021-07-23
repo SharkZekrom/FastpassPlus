@@ -1,7 +1,7 @@
-package fr.shark_zekrom.Fastpass;
+package be.shark_zekrom.fastpass;
 
-import fr.shark_zekrom.Fastpass.Commands.Commands;
-import fr.shark_zekrom.Fastpass.Listener.OnRightClick;
+import be.shark_zekrom.fastpass.commands.Commands;
+import be.shark_zekrom.fastpass.listener.OnRightClick;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

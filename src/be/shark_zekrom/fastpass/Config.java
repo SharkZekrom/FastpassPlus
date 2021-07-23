@@ -1,4 +1,4 @@
-package fr.shark_zekrom.Fastpass;
+package be.shark_zekrom.fastpass;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
